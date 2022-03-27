@@ -5,43 +5,35 @@ using UnityEngine;
 public class EnemyController : SteerableBehaviour, IShooter, IDamageable {
 
 	Animator animator;
-	SpriteRenderer sprite;
+	SpriteRenderer Actsprite;
 	public GameObject bullet;
-
-	[SerializeField]
-	private Sprite[] spriteDamage;
-
+	public AudioClip shootSFX, damageSFX;
 	private int lifes;
 
 	private void Start() {
 		animator = GetComponent<Animator>();
-		sprite = GetComponent<SpriteRenderer>();
+		Actsprite = GetComponent<SpriteRenderer>();
+		Actsprite.color = new Color(Actsprite.color.r, Actsprite.color.g, Actsprite.color.b, 1.0f);
 		lifes = 5;
 	}
-
 
 	public void Shoot() {
 		throw new System.NotImplementedException();
 	}
 
 	public void TakeDamage() {
-		// animator.SetTrigger("Collison");
-		// AudioManager.Play(damageSFX);
+		AudioManager.Play(damageSFX);
 		lifes--;
-		string spriteName = "Tilt" + GetComponent<SpriteRenderer>().sprite.name;
-
-		foreach (Sprite s in spriteDamage) {
-			if (s.name == spriteName) {
-				sprite.sprite = s;
-				break;
-			}
-		}
-
 		if (lifes <= 0) {
-			// AudioManager.Stop(Background);
 			// AudioManager.Play(deathSFX);
 			Die();
 		}
+		Actsprite.color = new Color(Actsprite.color.r, Actsprite.color.g, Actsprite.color.b, 0.5f);
+		Invoke("ChangeColor", 0.1f);
+	}
+
+	public void ChangeColor() {
+		Actsprite.color = new Color(Actsprite.color.r, Actsprite.color.g, Actsprite.color.b, 1.0f);
 	}
 
 	public void Die() {
@@ -49,7 +41,6 @@ public class EnemyController : SteerableBehaviour, IShooter, IDamageable {
 	}
 
 	float angle = 0;
-
 	private void FixedUpdate() {
 		angle += 0.1f;
 		Mathf.Clamp(angle, 0.0f, 2.0f * Mathf.PI);

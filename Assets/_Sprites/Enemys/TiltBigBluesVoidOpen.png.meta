@@ -1,31 +1,19 @@
 fileFormatVersion: 2
-guid: eabdb61375056294086885da1697f672
+guid: 1c79ab4aef286e14eb5d92410ed73249
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 5530892314359689834
-    second: BigBluesVoidOpenTilt_0
+      213: -3802898707989643105
+    second: BigBluesVoidOpen1_0
   - first:
-      213: -234149156225025836
-    second: BigBluesVoidOpenTilt_1
+      213: 94842746487396822
+    second: BigBluesVoidOpen1_1
   - first:
-      213: 6755510537555947016
-    second: BigBluesVoidOpenTilt_2
+      213: 2981999380362333228
+    second: BigBluesVoidOpen1_2
   - first:
-      213: 2984775455118440313
-    second: BigBluesVoidOpenTilt_3
-  - first:
-      213: 4666738828868342630
-    second: TiltBigBluesVoidOpen_0
-  - first:
-      213: -6547773830663154605
-    second: TiltBigBluesVoidOpen_1
-  - first:
-      213: -5161731902114967581
-    second: TiltBigBluesVoidOpen_2
-  - first:
-      213: -8553734724607127294
-    second: TiltBigBluesVoidOpen_3
+      213: -7371702013777702949
+    second: BigBluesVoidOpen1_3
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -127,7 +115,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: TiltBigBluesVoidOpen_0
+      name: BigBluesVoidOpen1_0
       rect:
         serializedVersion: 2
         x: 0
@@ -141,14 +129,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 663583a4d3693c040800000000000000
-      internalID: 4666738828868342630
+      spriteID: f904c7116c3693bc0800000000000000
+      internalID: -3802898707989643105
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: TiltBigBluesVoidOpen_1
+      name: BigBluesVoidOpen1_1
       rect:
         serializedVersion: 2
         x: 48
@@ -162,14 +150,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 35459b18462a125a0800000000000000
-      internalID: -6547773830663154605
+      spriteID: 6d957e5b9f2f05100800000000000000
+      internalID: 94842746487396822
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: TiltBigBluesVoidOpen_2
+      name: BigBluesVoidOpen1_2
       rect:
         serializedVersion: 2
         x: 96
@@ -183,14 +171,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3efc2acde28dd58b0800000000000000
-      internalID: -5161731902114967581
+      spriteID: c2c8eea13a0326920800000000000000
+      internalID: 2981999380362333228
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: TiltBigBluesVoidOpen_3
+      name: BigBluesVoidOpen1_3
       rect:
         serializedVersion: 2
         x: 144
@@ -204,8 +192,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2015edc66970b4980800000000000000
-      internalID: -8553734724607127294
+      spriteID: bdf8fbe431472b990800000000000000
+      internalID: -7371702013777702949
       vertices: []
       indices: 
       edges: []

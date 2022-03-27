@@ -30,7 +30,7 @@ Transform:
   m_GameObject: {fileID: 5162944919076673615}
   m_LocalRotation: {x: 0, y: 0, z: 1, w: 0}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.7, y: 1.7, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -54,7 +54,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: ae6346eb0c610004db3c8a415b0e5199, type: 2}
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -74,7 +74,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -1
   m_Sprite: {fileID: -3400892940813665192, guid: a8ac4a7a00959944c974307695749e8b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -150,11 +150,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   td: {fileID: 11400000, guid: 7251a96ea515e88409cf2bfe766d5e8e, type: 2}
   bullet: {fileID: 0}
-  spriteDamage:
-  - {fileID: 4666738828868342630, guid: eabdb61375056294086885da1697f672, type: 3}
-  - {fileID: -6547773830663154605, guid: eabdb61375056294086885da1697f672, type: 3}
-  - {fileID: -5161731902114967581, guid: eabdb61375056294086885da1697f672, type: 3}
-  - {fileID: -8553734724607127294, guid: eabdb61375056294086885da1697f672, type: 3}
+  shootSFX: {fileID: 0}
+  damageSFX: {fileID: 8300000, guid: 2497f5ebfa96f284bbb01e61c23eeb88, type: 3}
 --- !u!95 &5544723802999399275
 Animator:
   serializedVersion: 3
