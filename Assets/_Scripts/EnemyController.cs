@@ -6,15 +6,27 @@ public class EnemyController : SteerableBehaviour, IShooter, IDamageable {
 
 	Animator animator;
 	SpriteRenderer Actsprite;
+
 	public GameObject bullet;
 	public AudioClip shootSFX, damageSFX;
+
+	private Vector3 objectSize, bounds;
 	private int lifes;
 
 	private void Start() {
 		animator = GetComponent<Animator>();
 		Actsprite = GetComponent<SpriteRenderer>();
-		Actsprite.color = new Color(Actsprite.color.r, Actsprite.color.g, Actsprite.color.b, 1.0f);
-		lifes = 5;
+		bounds = gameObject.GetComponent<SizeAndCamera>().screenBounds();
+		objectSize = gameObject.GetComponent<SizeAndCamera>().objectSize();
+		lifes = 2;
+	}
+
+	private void FixedUpdate() {
+		if (transform.position.y < -(bounds.y + objectSize.y)) {
+			Die();
+		}
+
+		Thrust(0, -1);
 	}
 
 	public void Shoot() {
@@ -38,15 +50,5 @@ public class EnemyController : SteerableBehaviour, IShooter, IDamageable {
 
 	public void Die() {
 		Destroy(gameObject);
-	}
-
-	float angle = 0;
-	private void FixedUpdate() {
-		angle += 0.1f;
-		Mathf.Clamp(angle, 0.0f, 2.0f * Mathf.PI);
-		float x = Mathf.Sin(angle);
-		float y = Mathf.Cos(angle);
-
-		Thrust(x, y);
 	}
 }

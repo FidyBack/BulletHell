@@ -8,19 +8,18 @@ public class PlayerController : SteerableBehaviour, IShooter, IDamageable {
 
 	Animator animator;
 
-	public Camera MainCamera;
 	public GameObject bullet;
 	public AudioClip shootSFX, damageSFX, deathSFX, Background;
-	public Transform gun;
+	public Transform[] gun;
 	public float shootDelay = 0.1f;
 
-	private Vector2 screenBounds, objectSize;
+	private Vector3 objectSize, bounds;
 	private int lifes;
 	private float _lastShootTimestamp = 0.0f;
 
 	private void Start() {
-		screenBounds = MainCamera.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, MainCamera.transform.position.z));
-		objectSize = new Vector2(transform.GetComponent<SpriteRenderer>().bounds.extents.x, transform.GetComponent<SpriteRenderer>().bounds.extents.y); //extents.x = width / 2, extents.y = height / 2 
+		bounds = gameObject.GetComponent<SizeAndCamera>().screenBounds();
+		objectSize = gameObject.GetComponent<SizeAndCamera>().objectSize();
 		animator = GetComponent<Animator>();
 		lifes = 5;
 	}
@@ -37,8 +36,9 @@ public class PlayerController : SteerableBehaviour, IShooter, IDamageable {
 
 		AudioManager.Play(shootSFX);
 		_lastShootTimestamp = Time.time;
-		Instantiate(bullet, gun.position, Quaternion.identity);
-
+		foreach (Transform gunPoint in gun) {
+			Instantiate(bullet, gunPoint.position, Quaternion.identity);
+		}
 	}
 
 	public void TakeDamage() {
@@ -67,17 +67,18 @@ public class PlayerController : SteerableBehaviour, IShooter, IDamageable {
 		} else {
 			transform.rotation = Quaternion.Euler(new Vector3(0, 0, 0));
 		}
-		Thrust(xInput, yInput);
 
-		if (Input.GetAxis("Jump") != 0) {
+		if (Input.GetKey(KeyCode.Space)) {
 			Shoot();
 		}
+
+		Thrust(xInput, yInput);
 	}
 
 	void LateUpdate(){
 		Vector3 viewPos = transform.position;
-		viewPos.x = Mathf.Clamp(viewPos.x, -(screenBounds.x - objectSize.x), screenBounds.x - objectSize.x);
-		viewPos.y = Mathf.Clamp(viewPos.y, -(screenBounds.y - objectSize.y), screenBounds.y - objectSize.y);
+		viewPos.x = Mathf.Clamp(viewPos.x, -(bounds.x - objectSize.x), bounds.x - objectSize.x);
+		viewPos.y = Mathf.Clamp(viewPos.y, -(bounds.y - objectSize.y), bounds.y - objectSize.y);
 		transform.position = viewPos;
 	}
 }
