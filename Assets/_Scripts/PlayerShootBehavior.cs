@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerShootBehavior : SteerableBehaviour {
 
     private Vector3 objectSize, bounds;
+    
 
     private void Start() {
 		bounds = gameObject.GetComponent<SizeAndCamera>().screenBounds();
@@ -22,7 +23,7 @@ public class PlayerShootBehavior : SteerableBehaviour {
     private void OnTriggerEnter2D(Collider2D collider) {
 
         if(collider.CompareTag("Player")) return;
-        
+
         IDamageable damagable = collider.gameObject.GetComponent(typeof(IDamageable)) as IDamageable;
         if (!(damagable is null)) {
             damagable.TakeDamage();

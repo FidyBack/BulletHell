@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Enemys
   - Shoot
+  - Meteoro
   layers:
   - Default
   - TransparentFX

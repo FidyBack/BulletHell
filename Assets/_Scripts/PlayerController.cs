@@ -25,7 +25,7 @@ public class PlayerController : SteerableBehaviour, IShooter, IDamageable {
 	}
 
 	private void OnTriggerEnter2D(Collider2D collision) {
-		if (collision.CompareTag("Enemys")) {
+		if (collision.CompareTag("Enemys") || collision.CompareTag("Meteoro")) {
 			Destroy(collision.gameObject);
 			TakeDamage();
 		}
