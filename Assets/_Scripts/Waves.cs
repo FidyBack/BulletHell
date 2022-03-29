@@ -5,7 +5,7 @@ using UnityEngine;
 public class Waves : MonoBehaviour {
 	public GameObject[] enemies;
 	private Vector3 pos;
-	private bool firstWaveDone = false;
+	private bool firstWaveDone, secondWaveDone = false;
 
 
 	private void Start() {
@@ -15,7 +15,9 @@ public class Waves : MonoBehaviour {
 
 	private void Update() {
 		if (firstWaveDone) {
-
+			secondWaveEnemiesSpawn();
+		}else if(secondWaveDone){
+			secondWaveDone = false;
 		}
 	}
 	
@@ -40,4 +42,11 @@ public class Waves : MonoBehaviour {
 		}
 		firstWaveDone = true;
 	}
+
+	private void secondWaveEnemiesSpawn() {
+		Instantiate(enemies[2], new Vector3(pos.x , pos.y, pos.z), Quaternion.identity);
+		firstWaveDone = false;
+		secondWaveDone = true;
+	}
+
 }
