@@ -7210,6 +7210,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemies:
   - {fileID: 5162944919076673615, guid: 8ea61edb57ee2d348bbad86675c1642e, type: 3}
+  - {fileID: 7107661030765896024, guid: ab252dccfe58f84409394eaf0515d51d, type: 3}
+  - {fileID: 6757332461405904489, guid: 0a0e64d50146a754eaae6b00ee9acb59, type: 3}
 --- !u!1 &1410753861
 GameObject:
   m_ObjectHideFlags: 0

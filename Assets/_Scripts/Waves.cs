@@ -22,8 +22,8 @@ public class Waves : MonoBehaviour {
 	}
 	
 	private void firstWaveEnemiesSpawn() {
-		for (int i = 0; i < 4; i++) {
-			for (int j = 0; j < 7; j++) {
+		for (int i = 0; i < 20; i++) {
+			for (int j = 0; j < 30; j++) {
 				if (i % 2 == 0) {
 					Instantiate(enemies[0], new Vector3(pos.x - 0.5f*j, (pos.y + 1.5f*j)+i*10 , pos.z), Quaternion.identity);
 
@@ -44,7 +44,18 @@ public class Waves : MonoBehaviour {
 	}
 
 	private void secondWaveEnemiesSpawn() {
-		Instantiate(enemies[2], new Vector3(pos.x , pos.y, pos.z), Quaternion.identity);
+		for (int i = 0; i < 20; i++) {
+			for (int j = 0; j < 30; j++) {
+				if (i % 5 == 0) {
+					Instantiate(enemies[2], new Vector3(pos.x - 2.5f*j, (pos.y + 3.5f*j)+i*10 , pos.z), Quaternion.identity);
+					}
+
+				else if (i % 5 == 1) {
+					Instantiate(enemies[2], new Vector3(pos.x + 2.5f*j, (pos.y + 3.5f*j)+i*10 , pos.z), Quaternion.identity);
+					}
+				}
+			}
+
 		firstWaveDone = false;
 		secondWaveDone = true;
 	}

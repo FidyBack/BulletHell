@@ -99,8 +99,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damageSFX: {fileID: 8300000, guid: 2497f5ebfa96f284bbb01e61c23eeb88, type: 3}
-  ySpeed: 3
-  healt: 0
+  ySpeed: 5
+  healt: 5
 --- !u!60 &7107661030765896031
 PolygonCollider2D:
   m_ObjectHideFlags: 0

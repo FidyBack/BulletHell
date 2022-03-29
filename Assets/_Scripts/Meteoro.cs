@@ -21,7 +21,7 @@ public class Meteoro : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        healt = 20;
+        healt = 7;
         bounds = gameObject.GetComponent<SizeAndCamera>().screenBounds();
 		    objectSize = gameObject.GetComponent<SizeAndCamera>().objectSize();
     }
