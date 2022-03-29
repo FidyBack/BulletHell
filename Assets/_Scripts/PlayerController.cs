@@ -7,6 +7,7 @@ using UnityEngine;
 public class PlayerController : SteerableBehaviour, IShooter, IDamageable {
 
 	Animator animator;
+	GameManager gm;
 
 	public GameObject bullet;
 	public AudioClip shootSFX, damageSFX, deathSFX, Background;
@@ -14,14 +15,13 @@ public class PlayerController : SteerableBehaviour, IShooter, IDamageable {
 	public float shootDelay = 0.1f;
 
 	private Vector3 objectSize, bounds;
-	private int lifes;
 	private float _lastShootTimestamp = 0.0f;
 
 	private void Start() {
+		gm = GameManager.GetInstance();
 		bounds = gameObject.GetComponent<SizeAndCamera>().screenBounds();
 		objectSize = gameObject.GetComponent<SizeAndCamera>().objectSize();
 		animator = GetComponent<Animator>();
-		lifes = 5;
 	}
 
 	private void OnTriggerEnter2D(Collider2D collision) {
@@ -44,8 +44,8 @@ public class PlayerController : SteerableBehaviour, IShooter, IDamageable {
 	public void TakeDamage() {
 		animator.SetTrigger("Collison");
 		AudioManager.Play(damageSFX);
-		lifes--;
-		if (lifes <= 0) {
+		gm.lifes--;
+		if (gm.lifes <= 0) {
 			AudioManager.Stop(Background);
 			AudioManager.Play(deathSFX);
 			Die();
